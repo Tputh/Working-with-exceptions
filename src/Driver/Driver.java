@@ -21,15 +21,11 @@ public abstract class Driver{
         this.fio = fio;
     }
 
-    public String getDriversLicense() throws TypeDriversException{
-        if (driversLicense != null && driversLicense.isEmpty() && driversLicense.isBlank()){
-            return driversLicense;
-        }else {
-            throw new TypeDriversException("Необходимо указать тип прав!");
-        }
+    public String getDriversLicense() {
+        return driversLicense;
     }
 
-    public void setDriversLicense(String driversLicense) throws TypeDriversException {
+    public void setDriversLicense(String driversLicense)  {
         this.driversLicense = driversLicense;
     }
 
@@ -48,6 +44,6 @@ public abstract class Driver{
 
     public abstract void refuelTheCar();
 
-    public abstract void printsDriversLicense() throws TypeDriversException;
+
 
 }

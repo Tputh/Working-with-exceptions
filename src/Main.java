@@ -4,13 +4,13 @@ import Driver.DriverC;
 import Driver.DriverD;
 
 public class Main  {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
 
         DriverB driverB = new DriverB("Иван", "В", 5);
         Car cars = new Car("Tayota" , " Mark II", 2.5, 300,
                 280, " Механика ", "Седан", driverB);
-        driverB.printsDriversLicense();
-        System.out.println(driverB);
+
         printInfo(cars);
         System.out.println(cars);
         cars.start();
@@ -25,7 +25,7 @@ public class Main  {
         Bus bus = new Bus("Mercedes-Benz", "Travego M OM 457 LA", 8.0,
                 12.82,3.7, 1000, 12, driverD);
 
-        System.out.println(driverD);
+
         printInfo(bus);
         System.out.println(bus);
         bus.start();
@@ -51,6 +51,7 @@ public class Main  {
 
         System.out.println("Названный Автотранспорт пребудьте в Бокс А для прохождения диагностики");
         passDiagnostics(cars, bus, trucks);
+        printsDriversLicense(bus, cars, trucks);
 
 
 
@@ -70,6 +71,18 @@ public class Main  {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    public static void printsDriversLicense(Transport... transports) throws Exception {
+        for (Transport transport : transports) {
+            try {
+                transport.printsDriversLicense();
+            } catch (TypeDriversException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+
     }
 
 

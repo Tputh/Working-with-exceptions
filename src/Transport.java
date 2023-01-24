@@ -55,6 +55,6 @@ public abstract class Transport<T extends Driver> implements Cloneable {
     }
 
     public abstract void passDiagnostics();
-    public abstract void printsDriversLicense();
+    public abstract void printsDriversLicense() throws TypeDriversException, Exception;
 
 }

@@ -1,5 +1,4 @@
 import Driver.DriverB;
-import Driver.TypeDriversException;
 
 public class Car extends Transport<DriverB> {
 
@@ -77,8 +76,12 @@ public class Car extends Transport<DriverB> {
     }
 
     @Override
-    public void printsDriversLicense() {
-
+    public void printsDriversLicense() throws Exception {
+        if (drever.getDriversLicense()== null || drever.getDriversLicense().isEmpty() || drever.getDriversLicense().isBlank()){
+            throw new TypeDriversException("Необходимо указать тип прав!");
+        }else {
+            System.out.println("у водителя машины категория прав " + drever.getDriversLicense());
+        }
     }
 
 

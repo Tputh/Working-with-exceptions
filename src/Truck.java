@@ -1,5 +1,4 @@
 import Driver.DriverC;
-import Driver.TypeDriversException;
 
 public class Truck extends Transport<DriverC> {
     private int averageSpeed;
@@ -78,8 +77,12 @@ public class Truck extends Transport<DriverC> {
     }
 
     @Override
-    public void printsDriversLicense() {
-
+    public void printsDriversLicense() throws Exception {
+        if (drever.getDriversLicense()== null || drever.getDriversLicense().isEmpty() || drever.getDriversLicense().isBlank()){
+            throw new TypeDriversException("Необходимо указать тип прав!");
+        }else {
+            System.out.println("у водителя грузовика категория прав " + drever.getDriversLicense());
+        }
     }
 
 

@@ -22,14 +22,7 @@ public class DriverD extends Driver{
         System.out.println("Водитель категории D " + getFio() + " заправляет авто");
     }
 
-    @Override
-    public void printsDriversLicense() throws TypeDriversException {
-        if (getDriversLicense()!= null && getDriversLicense().isEmpty() && getDriversLicense().isBlank()){
-            System.out.println("Категория прав " + getDriversLicense());
-        }else {
-            throw new TypeDriversException("Необходимо указать тип прав!");
-        }
-    }
+
 
 
 }
